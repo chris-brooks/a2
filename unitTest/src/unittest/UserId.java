@@ -19,11 +19,13 @@ class UserId {
     String email;
     String delimiters = "[.]";
     String[] parsedUserId;
+    
+    //Expect that users will have a .com, .net, or .edu email address
     private static String emailValidatorTokens = ".com$|.net$|.edu$";
     
     Scanner keyboardInput = new Scanner(System.in);
     
-    //Expect that users will have a .com, .net, or .edu email address
+    
     
     public void login()
     {

@@ -14,44 +14,50 @@ import java.util.regex.Pattern;
  * @author Christopher Brooks
  */
 public class Password {
-    
+
     //must be 8 char
     // at least one capitol letter or one number
     // at least one special char {!,@,#,$,%,^,&,*,(,)}
-    
     String password;
-    private static String passwordValidatorTokens = "(\\d+ | \\p{Upper}) && [!@#\\$%\\^&\\*)(]";
-    
+
+    private static final String passwordRegex = "^(?=.*[0-9] || ?=.*[A-Z])(?=.*[!@#$%^&*()])(?=\\S+$).{8,}$";
+
     Scanner keyboardInput = new Scanner(System.in);
-    
-    //Expect that users will have a .com, .net, or .edu email address
-    
-    public void enterPassword()
-    {
-        System.out.println("Enter Password: ");
+
+    public void enterPassword() {
+        System.out.print("Enter Password: ");
         password = keyboardInput.next();
-        
+
         validatePassword(password);
     }
-    
+
     //Does not check for a valid email address, only the required TLDs
-    public boolean validatePassword(String passwordIn)
-    {
-        Pattern passwordPattern = Pattern.compile(passwordValidatorTokens, Pattern.CASE_INSENSITIVE);
-        
+    public boolean validatePassword(String passwordIn) {
+        Pattern passwordPattern = Pattern.compile(passwordRegex, Pattern.CASE_INSENSITIVE);
+
         Matcher m = passwordPattern.matcher(passwordIn);
-        
-        if(m.find())
-        {
+
+        if (m.find()) {
             System.out.println("Found match, " + passwordIn + ", with regex validator.");
+            doubleCheckPassword(passwordIn);
             return true;
-        }
-        else
+        } else {
             System.out.println("No matches found.");
+        }
         return false;
-        
+
+    }
+    
+    public void doubleCheckPassword(String passwordToBeCheckedIn) {
+        System.out.print("Enter password again: ");
+        String password2 = keyboardInput.next();
+        if(password2 == passwordToBeCheckedIn) {
+            System.out.println("Passwords match! Thank you!!");
+        } else {
+            System.out.println("Passwords do not match. Try again.");
+        }
     }
     
     
-    
+
 }
