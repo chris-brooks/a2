@@ -35,6 +35,12 @@ class UserId {
         validateEmail(email);
     }
     
+    public void login(String userIdIn)
+    {
+        System.out.println("Enter User ID: ");
+        validateEmail(userIdIn);
+    }
+    
     //Does not check for a valid email address, only the required TLDs
     public boolean validateEmail(String userId)
     {
