@@ -30,6 +30,12 @@ public class Password {
 
         validatePassword(password);
     }
+    
+    public void enterPassword(String passwordIn) {
+        System.out.print("Enter Password: ");
+
+        validatePassword(passwordIn);
+    }
 
     //Does not check for a valid email address, only the required TLDs
     public boolean validatePassword(String passwordIn) {
@@ -48,13 +54,15 @@ public class Password {
 
     }
     
-    public void doubleCheckPassword(String passwordToBeCheckedIn) {
+    public boolean doubleCheckPassword(String passwordToBeCheckedIn) {
         System.out.print("Enter password again: ");
         String password2 = keyboardInput.next();
         if(password2 == passwordToBeCheckedIn) {
             System.out.println("Passwords match! Thank you!!");
+            return true;
         } else {
             System.out.println("Passwords do not match. Try again.");
+            return false;
         }
     }
     

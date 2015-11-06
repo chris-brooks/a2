@@ -27,18 +27,18 @@ class UserId {
     
     
     
-    public void login()
+    public boolean login()
     {
         System.out.println("Enter User ID: ");
         email = keyboardInput.next();
         
-        validateEmail(email);
+        return validateEmail(email);
     }
     
-    public void login(String userIdIn)
+    public boolean login(String userIdIn)
     {
         System.out.println("Enter User ID: ");
-        validateEmail(userIdIn);
+        return validateEmail(userIdIn);
     }
     
     //Does not check for a valid email address, only the required TLDs

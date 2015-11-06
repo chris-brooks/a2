@@ -25,6 +25,8 @@ public class UnitTestTest {
     
     @BeforeClass
     public static void setUpClass() {
+        UserId user = new UserId();
+        Password pw = new Password();
     }
     
     @AfterClass
@@ -33,8 +35,7 @@ public class UnitTestTest {
     
     @Before
     public void setUp() {
-        UserId user = new UserId();
-        Password pw = new Password();
+        
     }
     
     @After
@@ -53,10 +54,19 @@ public class UnitTestTest {
         UserId user = new UserId();
         Password pw = new Password();
         
+        for(int i = 0; i < userId.length; i++) {
+            if(user.login(userId[i]) == true) {
+                System.out.println("UserID test passed.");
+            } else
+                fail("UserID test failed.");
+            
+            
+        }
+        
         
         
         // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        //fail("The test case is a prototype.");
     }
     
 }
