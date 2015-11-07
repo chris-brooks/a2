@@ -20,27 +20,7 @@ public class UnitTestTest {
     protected String[] userId = {"me.com", "myemail@email.co.uk", "cmbrooks2@alaska.edu", "email@aol.com", "youcanfly12@gci.net"};
     protected String[] password = {"bobbyB", "h@ppy123", "qwerty", "Qwerty0!", "ggggg%$12"};
     
-    public UnitTestTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-        UserId user = new UserId();
-        Password pw = new Password();
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
-    
-    @Before
-    public void setUp() {
-        
-    }
-    
-    @After
-    public void tearDown() {
-    }
+
 
     /**
      * Test of main method, of class UnitTest.
@@ -54,14 +34,7 @@ public class UnitTestTest {
         UserId user = new UserId();
         Password pw = new Password();
         
-        for(int i = 0; i < userId.length; i++) {
-            if(user.login(userId[i]) == true) {
-                System.out.println("UserID test passed.");
-            } else
-                fail("UserID test failed.");
-            
-            
-        }
+        
         
         
         

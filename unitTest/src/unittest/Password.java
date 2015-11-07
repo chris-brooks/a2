@@ -5,7 +5,6 @@
  */
 package unittest;
 
-import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -21,21 +20,6 @@ public class Password {
     String password;
 
     private static final String passwordRegex = "^(?=.*[0-9] || ?=.*[A-Z])(?=.*[!@#$%^&*()])(?=\\S+$).{8,}$";
-
-    Scanner keyboardInput = new Scanner(System.in);
-
-    public void enterPassword() {
-        System.out.print("Enter Password: ");
-        password = keyboardInput.next();
-
-        validatePassword(password);
-    }
-    
-    public void enterPassword(String passwordIn) {
-        System.out.print("Enter Password: ");
-
-        validatePassword(passwordIn);
-    }
 
     //Does not check for a valid email address, only the required TLDs
     public boolean validatePassword(String passwordIn) {
@@ -53,19 +37,16 @@ public class Password {
         return false;
 
     }
-    
+
     public boolean doubleCheckPassword(String passwordToBeCheckedIn) {
-        System.out.print("Enter password again: ");
-        String password2 = keyboardInput.next();
-        if(password2 == passwordToBeCheckedIn) {
+
+        if (passwordToBeCheckedIn.equals(password)) {
             System.out.println("Passwords match! Thank you!!");
             return true;
         } else {
             System.out.println("Passwords do not match. Try again.");
-            return false;
         }
+        return false;
     }
-    
-    
 
 }

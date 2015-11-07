@@ -5,6 +5,8 @@
  */
 package unittest;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Christopher Brooks
@@ -16,15 +18,20 @@ public class UnitTest {
      */
     public static void main(String[] args) {
         
+        Scanner keyboardInput = new Scanner(System.in);
+       
+        
+        
         //Create a new login object, contains userud
         UserId user = new UserId();
         
         //call the login logic
-        user.login();
+        System.out.println("Enter User ID: ");
+        String input = keyboardInput.next();
+        user.validateEmail(input);
         
         Password pw = new Password();
-        
-        pw.enterPassword();
+        System.out.print("Enter Password: ");
         
     }
     
